@@ -1,0 +1,105 @@
+{
+  "geode": "5.11.2",
+  "gd": {
+    "win": "2.2081",
+    "android": "2.2081",
+    "mac": "2.2081",
+    "ios": "2.2081"
+  },
+  "id": "yourname.predictive-input-buffer",
+  "name": "Predictive Input Buffer",
+  "version": "v2.1.0",
+  "developer": "YourName",
+  "description": "Frame-adjustable, predictive input buffer and hazard assist for the Cube and the Wave, with live console output.",
+  "settings": {
+    "enabled": {
+      "type": "bool",
+      "name": "Enabled",
+      "default": true
+    },
+    "cube-assist": {
+      "type": "bool",
+      "name": "Cube assist",
+      "description": "Buffers early clicks and delays landing jumps so they clear the hazard ahead.",
+      "default": true
+    },
+    "cube-window": {
+      "type": "int",
+      "name": "Cube window (frames @ 60Hz)",
+      "description": "How early a click is remembered, and the most a jump may be delayed to clear a hazard. 0 = off.",
+      "default": 4,
+      "min": 0,
+      "max": 15,
+      "control": {
+        "slider": true
+      }
+    },
+    "cube-margin": {
+      "type": "float",
+      "name": "Cube clearance margin (units)",
+      "description": "Extra height required over a hazard when planning a jump.",
+      "default": 4.0,
+      "min": 0.0,
+      "max": 20.0
+    },
+    "wave-assist": {
+      "type": "bool",
+      "name": "Wave assist",
+      "description": "Overrides hold/release when your input would hit a hazard and a safe alternative exists.",
+      "default": true
+    },
+    "wave-window": {
+      "type": "int",
+      "name": "Wave window (frames @ 60Hz)",
+      "description": "How far ahead the Wave assist plans. Small = only steps in when death is imminent.",
+      "default": 4,
+      "min": 1,
+      "max": 40,
+      "control": {
+        "slider": true
+      }
+    },
+    "wave-margin": {
+      "type": "float",
+      "name": "Wave hazard margin (units)",
+      "description": "Hazard hitboxes are inflated by this much when planning.",
+      "default": 1.5,
+      "min": 0.0,
+      "max": 10.0
+    },
+    "wave-solids": {
+      "type": "bool",
+      "name": "Treat solid blocks as deadly (Wave)",
+      "description": "Conservative. Off by default because the Wave can slide along some surfaces.",
+      "default": false
+    },
+    "wave-floor-y": {
+      "type": "float",
+      "name": "Wave floor Y (0 = off)",
+      "description": "Game-space Y of the floor the Wave slides along.",
+      "default": 0.0,
+      "min": 0.0,
+      "max": 10000.0
+    },
+    "wave-ceiling-y": {
+      "type": "float",
+      "name": "Wave ceiling Y (0 = off)",
+      "description": "Game-space Y of the ceiling the Wave slides along.",
+      "default": 0.0,
+      "min": 0.0,
+      "max": 10000.0
+    },
+    "wave-flip-gravity": {
+      "type": "bool",
+      "name": "Hold moves down when gravity flipped",
+      "description": "Enable if the Wave assist seems backwards in upside-down sections.",
+      "default": false
+    },
+    "console-output": {
+      "type": "bool",
+      "name": "Console output",
+      "description": "Print assist actions to Geode's log/console (enable Geode's \"Show Platform Console\" to see it in its own window).",
+      "default": true
+    }
+  }
+}
